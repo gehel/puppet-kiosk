@@ -22,8 +22,6 @@ class kiosk::params {
   $dashboard_file = '/home/pi/dashboard.html'
   $boot_config = '/boot/config.txt'
   $boot_config_template = 'role/kiosk/boot-config.txt.erb'
-  $framebuffer_width = 1920
-  $framebuffer_height = 1080
   $display_rotate = 0
   $raspberry = true
 

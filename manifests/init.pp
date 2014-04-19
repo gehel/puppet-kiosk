@@ -53,27 +53,17 @@ class kiosk (
   $boot_config          = params_lookup('boot_config'),
   $boot_config_template = params_lookup('boot_config_template'),
   $raspberry            = params_lookup('raspberry'),
-  $framebuffer_width    = params_lookup('framebuffer_width'),
-  $framebuffer_height   = params_lookup('framebuffer_height'),
   $display_rotate       = params_lookup('display_rotate'),
   $my_class             = params_lookup('my_class'),
   $absent               = params_lookup('absent'),
   $audit_only           = params_lookup('audit_only', 'global'),
   $noops                = params_lookup('noops'),) inherits kiosk::params {
-  if !is_integer($refresh_interval) {
-    fail("refresh_interval is not an integer [${refresh_interval}]")
+  if !is_integer($kiosk::refresh_interval) {
+    fail("refresh_interval is not an integer [${kiosk::refresh_interval}]")
   }
 
-  if !is_integer($framebuffer_width) {
-    fail("framebuffer_width is not an integer [${framebuffer_width}]")
-  }
-
-  if !is_integer($framebuffer_height) {
-    fail("framebuffer_height is not an integer [${framebuffer_height}]")
-  }
-
-  if !is_integer($display_rotate) {
-    fail("display_rotate is not an integer [${framebuffer_height}]")
+  if !is_integer($kiosk::display_rotate) {
+    fail("display_rotate is not an integer [${kiosk::display_rotate}]")
   }
 
   validate_bool($raspberry)
