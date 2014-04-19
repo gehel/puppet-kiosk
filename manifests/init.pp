@@ -116,7 +116,7 @@ class kiosk (
 
   file { '/boot/xinitrc':
     ensure  => 'present',
-    content => template('role/kiosk/xinitrc.erb'),
+    content => template('kiosk/xinitrc.erb'),
     mode    => '755',
     replace => $kiosk::manage_file_replace,
     audit   => $kiosk::manage_audit,
@@ -126,7 +126,7 @@ class kiosk (
   file { $dashboard_file:
     ensure  => 'present',
     owner   => $user,
-    content => template('role/kiosk/dashboard.html.erb'),
+    content => template('kiosk/dashboard.html.erb'),
     replace => $kiosk::manage_file_replace,
     audit   => $kiosk::manage_audit,
     noop    => $kiosk::bool_noops,
@@ -134,7 +134,7 @@ class kiosk (
 
   rclocal::script { 'tv-screen':
     priority => '99',
-    content  => template('role/kiosk/rclocal.erb'),
+    content  => template('kiosk/rclocal.erb'),
     autoexec => false,
     audit    => $kiosk::manage_audit,
     noop     => $kiosk::bool_noops,
